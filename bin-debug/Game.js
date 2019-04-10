@@ -65,11 +65,18 @@ var Game = (function (_super) {
         for (var i = this._bullets_layer.numChildren - 1; i >= 0; i--) {
             var bullet = this._bullets_layer.getChildAt(i); // 获取子弹
             bullet.onUpdate(span);
+            if (bullet.parent == null) {
+                continue;
+            }
             var point = new egret.Point(bullet.x, bullet.y);
             for (var j = 0; j < this._actor_layer.numChildren; j++) {
                 var actor = this._actor_layer.getChildAt(j); // 获取小僵尸
+                if (actor._zombiestatus == ZombieStatus.Dead) {
+                    continue;
+                }
                 if (actor.getBlock().containsPoint(point)) {
-                    this._actor_layer.removeChild(actor);
+                    // this._actor_layer.removeChild(actor);
+                    actor.Dead();
                     this._bullets_layer.removeChild(bullet);
                     break;
                 }
