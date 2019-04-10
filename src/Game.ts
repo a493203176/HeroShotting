@@ -26,12 +26,18 @@ class Game extends egret.DisplayObjectContainer {
         this.addChild(this._actor_layer );
         this._bullets_layer = new egret.Sprite();
         this.addChild(this._bullets_layer);
+
+        var bgm:egret.Sound = RES.getRes("music_gaming_mp3");
+        var bgmchannel = bgm.play(0,0);
+        bgmchannel.volume = 0.3;
+        this._gunsound = RES.getRes("machine_gun_mp3");
     }
 
     private _lasttimestamp:number = 0;
     private _brithTimer:number = 0; // 怪物出现时间戳
     private _shot_vector:egret.Point = null;
     private _guncd:number = 0;
+    private _gunsound:egret.Sound;
 
     private onUpdate(timestamp:number):boolean {
         //console.log("onUpdate");
@@ -124,6 +130,7 @@ class Game extends egret.DisplayObjectContainer {
     }
 
     private addBullt() {
+        this._gunsound.play(0,1);
         var _bullt = new Bullet();
         _bullt.span_vector = this._shot_vector;
         _bullt.rotation = Math.atan2(this._shot_vector.y,this._shot_vector.x)*180/Math.PI + 90;

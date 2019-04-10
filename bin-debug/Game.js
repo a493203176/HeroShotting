@@ -36,6 +36,10 @@ var Game = (function (_super) {
         _this.addChild(_this._actor_layer);
         _this._bullets_layer = new egret.Sprite();
         _this.addChild(_this._bullets_layer);
+        var bgm = RES.getRes("music_gaming_mp3");
+        var bgmchannel = bgm.play(0, 0);
+        bgmchannel.volume = 0.3;
+        _this._gunsound = RES.getRes("machine_gun_mp3");
         return _this;
     }
     Game.prototype.onUpdate = function (timestamp) {
@@ -112,6 +116,7 @@ var Game = (function (_super) {
         this._shot_vector = null;
     };
     Game.prototype.addBullt = function () {
+        this._gunsound.play(0, 1);
         var _bullt = new Bullet();
         _bullt.span_vector = this._shot_vector;
         _bullt.rotation = Math.atan2(this._shot_vector.y, this._shot_vector.x) * 180 / Math.PI + 90;
