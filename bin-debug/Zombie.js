@@ -23,6 +23,9 @@ var Zombie = (function (_super) {
             this.parent.removeChild(this);
         }
     };
+    Zombie.prototype.getBlock = function () {
+        return new egret.Rectangle(this.x + 10, this.y, 58 - 10, 60 - 10);
+    };
     return Zombie;
 }(egret.Sprite));
 __reflect(Zombie.prototype, "Zombie");

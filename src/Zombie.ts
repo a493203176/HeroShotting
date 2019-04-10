@@ -13,4 +13,8 @@ class Zombie  extends egret.Sprite{
 			this.parent.removeChild(this);
 		}
 	}
+
+	public getBlock():egret.Rectangle {
+		return new egret.Rectangle(this.x+10,this.y,58-10,60-10);
+	}
 }
