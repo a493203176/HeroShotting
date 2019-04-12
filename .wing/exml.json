@@ -1,0 +1,29 @@
+{
+  "16a0aaf604a": {
+    "path": "../resource/NewFile.ts",
+    "class": "NewFile",
+    "parentPath": ""
+  },
+  "16a0ca5d5de": {
+    "path": "NewFile.ts",
+    "class": "NewFile",
+    "parentPath": ""
+  },
+  "global": {
+    "gridColor": 11018529,
+    "gridEnabled": false,
+    "gridSize": 20,
+    "globalAdsorbEnable": false,
+    "globalRulerEnable": true
+  },
+  "16a0d4fa1ad": {
+    "backgroundType": "null",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  }
+}

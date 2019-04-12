@@ -4,6 +4,7 @@ class Game extends egret.DisplayObjectContainer {
     private _gun:egret.Bitmap;
     private _actor_layer:egret.Sprite;
     private _bullets_layer:egret.Sprite;
+    private _gameui:GameUI;
     public constructor() {
         super();
         var bg = new egret.Bitmap();
@@ -31,8 +32,10 @@ class Game extends egret.DisplayObjectContainer {
         var bgmchannel = bgm.play(0,0);
         bgmchannel.volume = 0.3;
         this._gunsound = RES.getRes("machine_gun_mp3");
-    }
 
+        this.addChild(this._gameui = new GameUI());
+    }
+// bbs.egret.com/forum.php
     private _lasttimestamp:number = 0;
     private _brithTimer:number = 0; // 怪物出现时间戳
     private _shot_vector:egret.Point = null;
@@ -45,6 +48,13 @@ class Game extends egret.DisplayObjectContainer {
         this._lasttimestamp = timestamp;
         this._brithTimer += span;
 
+        
+        if (this._gameui.Time <= 0)
+        {
+            return ;
+        }
+        this._gameui.Time -= span;
+        
         if (this._brithTimer >= 1000) {
             // console.log("onUpdate  111");
             this._brithTimer = 0;
@@ -90,6 +100,7 @@ class Game extends egret.DisplayObjectContainer {
                     // this._actor_layer.removeChild(actor);
                      actor.Dead();
                      this._bullets_layer.removeChild(bullet);
+                     this._gameui.Score += 100;
                      break;
                  }
             }

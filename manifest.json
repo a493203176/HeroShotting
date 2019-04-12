@@ -11,6 +11,7 @@
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/Bullet.js",
 		"bin-debug/Game.js",
+		"bin-debug/GameUI.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",

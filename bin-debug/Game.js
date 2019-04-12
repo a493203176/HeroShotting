@@ -13,6 +13,7 @@ var Game = (function (_super) {
     __extends(Game, _super);
     function Game() {
         var _this = _super.call(this) || this;
+        // bbs.egret.com/forum.php
         _this._lasttimestamp = 0;
         _this._brithTimer = 0; // 怪物出现时间戳
         _this._shot_vector = null;
@@ -40,6 +41,7 @@ var Game = (function (_super) {
         var bgmchannel = bgm.play(0, 0);
         bgmchannel.volume = 0.3;
         _this._gunsound = RES.getRes("machine_gun_mp3");
+        _this.addChild(_this._gameui = new GameUI());
         return _this;
     }
     Game.prototype.onUpdate = function (timestamp) {
@@ -47,6 +49,10 @@ var Game = (function (_super) {
         var span = timestamp - this._lasttimestamp;
         this._lasttimestamp = timestamp;
         this._brithTimer += span;
+        if (this._gameui.Time <= 0) {
+            return;
+        }
+        this._gameui.Time -= span;
         if (this._brithTimer >= 1000) {
             // console.log("onUpdate  111");
             this._brithTimer = 0;
@@ -82,6 +88,7 @@ var Game = (function (_super) {
                     // this._actor_layer.removeChild(actor);
                     actor.Dead();
                     this._bullets_layer.removeChild(bullet);
+                    this._gameui.Score += 100;
                     break;
                 }
             }

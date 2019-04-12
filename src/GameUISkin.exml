@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GameUISkin" width="640" height="960" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<w:Config id="16a0d4fa1ad"/>
+	<e:Image source="ui_top_png" x="-9797.26" y="-1707.99" anchorOffsetX="-9793.84" anchorOffsetY="-1701.57" width="646.45" height="140.39" visible="false"/>
+	<e:Image source="ui_top_png" x="0" y="0"/>
+	<e:Label id="lb_score" text="9999999" x="152" anchorOffsetY="0" height="28" y="14" textColor="0xf2e224" stroke="2"/>
+	<e:Label text="分数" x="58" anchorOffsetY="0" height="28" y="14" textColor="0xe8e533" stroke="2"/>
+	<e:Label text="时间" x="344" anchorOffsetY="0" height="28" y="14" stroke="2"/>
+	<e:Label id="lb_time" text="9999999" x="424" anchorOffsetY="0" height="28" y="14" stroke="2"/>
+</e:Skin>

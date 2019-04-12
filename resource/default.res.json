@@ -1,126 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,bg_png,bullet_95m_png,enemy_05_walk_front_00_png,enemy_05_walk_front_01_png,enemy_05_walk_front_02_png,enemy_05_walk_front_03_png,enemy_05_walk_front_04_png,enemy_05_walk_front_05_png,enemy_05_walk_front_06_png,enemy_dead_01_00_png,enemy_dead_01_01_png,enemy_dead_01_02_png,enemy_dead_01_03_png,enemy_dead_01_04_png,enemy_dead_01_05_png,gun_gatling_1_png,gun_gatling_2_png,gun_gatling_3_png,machine_gun_mp3,music_gaming_mp3",
+			"keys": "ui_top_png,start_bg_png,panel_png,music_gaming_mp3,machine_gun_mp3,hurteffect_png,hurteffect_json,gun_gatling_3_png,gun_gatling_2_png,gun_gatling_1_png,enemy_dead_01_05_png,enemy_dead_01_04_png,enemy_dead_01_03_png,enemy_dead_01_02_png,enemy_dead_01_01_png,enemy_dead_01_00_png,enemy_08_walk_front_06_png,enemy_08_walk_front_05_png,enemy_08_walk_front_04_png,enemy_08_walk_front_03_png,enemy_08_walk_front_02_png,enemy_08_walk_front_01_png,enemy_08_walk_front_00_png,enemy_05_walk_front_06_png,enemy_05_walk_front_05_png,enemy_05_walk_front_04_png,enemy_05_walk_front_03_png,enemy_05_walk_front_02_png,enemy_05_walk_front_01_png,enemy_05_walk_front_00_png,egret_icon_png,button3_png,button2_png,button1_png,bullet_95m_png,bg_png,bg_jpg,飙血_gif",
 			"name": "preload"
 		}
 	],
 	"resources": [
-		{
-			"url": "assets/CheckBox/checkbox_select_disabled.png",
-			"type": "image",
-			"name": "checkbox_select_disabled_png"
-		},
-		{
-			"url": "assets/CheckBox/checkbox_select_down.png",
-			"type": "image",
-			"name": "checkbox_select_down_png"
-		},
-		{
-			"url": "assets/CheckBox/checkbox_select_up.png",
-			"type": "image",
-			"name": "checkbox_select_up_png"
-		},
-		{
-			"url": "assets/CheckBox/checkbox_unselect.png",
-			"type": "image",
-			"name": "checkbox_unselect_png"
-		},
-		{
-			"url": "assets/ItemRenderer/selected.png",
-			"type": "image",
-			"name": "selected_png"
-		},
-		{
-			"url": "assets/Panel/border.png",
-			"type": "image",
-			"name": "border_png"
-		},
-		{
-			"url": "assets/Panel/header.png",
-			"type": "image",
-			"name": "header_png"
-		},
-		{
-			"url": "assets/RadioButton/radiobutton_select_disabled.png",
-			"type": "image",
-			"name": "radiobutton_select_disabled_png"
-		},
-		{
-			"url": "assets/RadioButton/radiobutton_select_down.png",
-			"type": "image",
-			"name": "radiobutton_select_down_png"
-		},
-		{
-			"url": "assets/RadioButton/radiobutton_select_up.png",
-			"type": "image",
-			"name": "radiobutton_select_up_png"
-		},
-		{
-			"url": "assets/RadioButton/radiobutton_unselect.png",
-			"type": "image",
-			"name": "radiobutton_unselect_png"
-		},
-		{
-			"url": "assets/ScrollBar/roundthumb.png",
-			"type": "image",
-			"name": "roundthumb_png"
-		},
-		{
-			"url": "assets/Slider/thumb.png",
-			"type": "image",
-			"name": "thumb_png"
-		},
-		{
-			"url": "assets/Slider/track.png",
-			"type": "image",
-			"name": "track_png"
-		},
-		{
-			"url": "assets/Slider/tracklight.png",
-			"type": "image",
-			"name": "tracklight_png"
-		},
-		{
-			"url": "assets/ToggleSwitch/handle.png",
-			"type": "image",
-			"name": "handle_png"
-		},
-		{
-			"url": "assets/ToggleSwitch/off.png",
-			"type": "image",
-			"name": "off_png"
-		},
-		{
-			"url": "assets/ToggleSwitch/on.png",
-			"type": "image",
-			"name": "on_png"
-		},
-		{
-			"url": "assets/Button/button_down.png",
-			"type": "image",
-			"name": "button_down_png"
-		},
-		{
-			"url": "assets/Button/button_up.png",
-			"type": "image",
-			"name": "button_up_png"
-		},
-		{
-			"url": "assets/ProgressBar/thumb_pb.png",
-			"type": "image",
-			"name": "thumb_pb_png"
-		},
-		{
-			"url": "assets/ProgressBar/track_pb.png",
-			"type": "image",
-			"name": "track_pb_png"
-		},
-		{
-			"url": "assets/ScrollBar/track_sb.png",
-			"type": "image",
-			"name": "track_sb_png"
-		},
 		{
 			"url": "assets/bg.jpg",
 			"type": "image",
@@ -132,109 +17,184 @@
 			"name": "egret_icon_png"
 		},
 		{
-			"name": "description_json",
+			"url": "assets/bg.png",
+			"type": "image",
+			"name": "bg_png"
+		},
+		{
+			"url": "assets/bullet_95m.png",
+			"type": "image",
+			"name": "bullet_95m_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_00.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_00_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_01.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_01_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_02.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_02_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_03.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_03_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_04.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_04_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_05.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_05_png"
+		},
+		{
+			"url": "assets/enemy_05_walk_front_06.png",
+			"type": "image",
+			"name": "enemy_05_walk_front_06_png"
+		},
+		{
+			"url": "assets/enemy_dead_01_00.png",
+			"type": "image",
+			"name": "enemy_dead_01_00_png"
+		},
+		{
+			"url": "assets/enemy_dead_01_01.png",
+			"type": "image",
+			"name": "enemy_dead_01_01_png"
+		},
+		{
+			"url": "assets/enemy_dead_01_02.png",
+			"type": "image",
+			"name": "enemy_dead_01_02_png"
+		},
+		{
+			"url": "assets/enemy_dead_01_03.png",
+			"type": "image",
+			"name": "enemy_dead_01_03_png"
+		},
+		{
+			"url": "assets/enemy_dead_01_04.png",
+			"type": "image",
+			"name": "enemy_dead_01_04_png"
+		},
+		{
+			"url": "assets/enemy_dead_01_05.png",
+			"type": "image",
+			"name": "enemy_dead_01_05_png"
+		},
+		{
+			"url": "assets/gun_gatling_1.png",
+			"type": "image",
+			"name": "gun_gatling_1_png"
+		},
+		{
+			"url": "assets/gun_gatling_2.png",
+			"type": "image",
+			"name": "gun_gatling_2_png"
+		},
+		{
+			"url": "assets/gun_gatling_3.png",
+			"type": "image",
+			"name": "gun_gatling_3_png"
+		},
+		{
+			"url": "assets/machine_gun.mp3",
+			"type": "sound",
+			"name": "machine_gun_mp3"
+		},
+		{
+			"url": "assets/music_gaming.mp3",
+			"type": "sound",
+			"name": "music_gaming_mp3"
+		},
+		{
+			"url": "assets/button1.png",
+			"type": "image",
+			"name": "button1_png"
+		},
+		{
+			"url": "assets/button2.png",
+			"type": "image",
+			"name": "button2_png"
+		},
+		{
+			"url": "assets/button3.png",
+			"type": "image",
+			"name": "button3_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_00.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_00_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_01.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_01_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_02.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_02_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_03.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_03_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_04.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_04_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_05.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_05_png"
+		},
+		{
+			"url": "assets/enemy_08_walk_front_06.png",
+			"type": "image",
+			"name": "enemy_08_walk_front_06_png"
+		},
+		{
+			"url": "assets/hurteffect.png",
+			"type": "image",
+			"name": "hurteffect_png"
+		},
+		{
+			"url": "assets/panel.png",
+			"type": "image",
+			"name": "panel_png"
+		},
+		{
+			"url": "assets/start_bg.png",
+			"type": "image",
+			"name": "start_bg_png"
+		},
+		{
+			"url": "assets/ui_top.png",
+			"type": "image",
+			"name": "ui_top_png"
+		},
+		{
+			"url": "assets/hurteffect.json",
 			"type": "json",
-			"url": "config/description.json"
+			"name": "hurteffect_json"
 		},
 		{
-			"name": "bg_png",
+			"url": "assets/飙血.gif",
 			"type": "image",
-			"url": "assets/bg.png"
-		},
-		{
-			"name": "bullet_95m_png",
-			"type": "image",
-			"url": "assets/bullet_95m.png"
-		},
-		{
-			"name": "enemy_05_walk_front_00_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_00.png"
-		},
-		{
-			"name": "enemy_05_walk_front_01_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_01.png"
-		},
-		{
-			"name": "enemy_05_walk_front_02_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_02.png"
-		},
-		{
-			"name": "enemy_05_walk_front_03_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_03.png"
-		},
-		{
-			"name": "enemy_05_walk_front_04_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_04.png"
-		},
-		{
-			"name": "enemy_05_walk_front_05_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_05.png"
-		},
-		{
-			"name": "enemy_05_walk_front_06_png",
-			"type": "image",
-			"url": "assets/enemy_05_walk_front_06.png"
-		},
-		{
-			"name": "enemy_dead_01_00_png",
-			"type": "image",
-			"url": "assets/enemy_dead_01_00.png"
-		},
-		{
-			"name": "enemy_dead_01_01_png",
-			"type": "image",
-			"url": "assets/enemy_dead_01_01.png"
-		},
-		{
-			"name": "enemy_dead_01_02_png",
-			"type": "image",
-			"url": "assets/enemy_dead_01_02.png"
-		},
-		{
-			"name": "enemy_dead_01_03_png",
-			"type": "image",
-			"url": "assets/enemy_dead_01_03.png"
-		},
-		{
-			"name": "enemy_dead_01_04_png",
-			"type": "image",
-			"url": "assets/enemy_dead_01_04.png"
-		},
-		{
-			"name": "enemy_dead_01_05_png",
-			"type": "image",
-			"url": "assets/enemy_dead_01_05.png"
-		},
-		{
-			"name": "gun_gatling_1_png",
-			"type": "image",
-			"url": "assets/gun_gatling_1.png"
-		},
-		{
-			"name": "gun_gatling_2_png",
-			"type": "image",
-			"url": "assets/gun_gatling_2.png"
-		},
-		{
-			"name": "gun_gatling_3_png",
-			"type": "image",
-			"url": "assets/gun_gatling_3.png"
-		},
-		{
-			"name": "machine_gun_mp3",
-			"type": "sound",
-			"url": "assets/machine_gun.mp3"
-		},
-		{
-			"name": "music_gaming_mp3",
-			"type": "sound",
-			"url": "assets/music_gaming.mp3"
+			"name": "飙血_gif"
 		}
 	]
 }
