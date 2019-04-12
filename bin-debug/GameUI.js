@@ -14,10 +14,15 @@ var GameUI = (function (_super) {
         var _this = _super.call(this) || this;
         _this.skinName = "src/GameUISkin.exml";
         //console.log(this.lb_score.text);
-        _this.Score = 0;
-        _this.Time = 15000;
+        _this.btn_replay.addEventListener(egret.TouchEvent.TOUCH_TAP, _this.onclick_replay, _this);
+        _this.onclick_replay();
         return _this;
     }
+    GameUI.prototype.onclick_replay = function () {
+        this.group_over.visible = false;
+        this.Score = 0;
+        this.Time = 15000;
+    };
     Object.defineProperty(GameUI.prototype, "Score", {
         get: function () {
             return parseInt(this.lb_score.text);
@@ -34,13 +39,37 @@ var GameUI = (function (_super) {
         },
         set: function (value) {
             this._time = value;
-            var s = Math.floor(value / 1000);
-            var m = value % 1000;
+            if (this._time <= 0) {
+                this._time = 0;
+                this.GameOver();
+            }
+            var s = Math.floor(this._time / 1000);
+            var m = this._time % 1000;
             this.lb_time.text = s + "." + m;
         },
         enumerable: true,
         configurable: true
     });
+    GameUI.prototype.GameOver = function () {
+        this.group_over.visible = true;
+        this.lb_overscore.text = this.Score.toString();
+        if (this.Score > this.getBestScore()) {
+            this.setBestScore(this.Score);
+        }
+        this.lb_bestscore.text = this.getBestScore().toString();
+    };
+    GameUI.prototype.getBestScore = function () {
+        var str = egret.localStorage.getItem("KZ_BESTSCORE");
+        if (str == null) {
+            return 0;
+        }
+        else {
+            return parseInt(str);
+        }
+    };
+    GameUI.prototype.setBestScore = function (value) {
+        egret.localStorage.setItem("KZ_BESTSCORE", value.toString());
+    };
     return GameUI;
 }(eui.Component));
 __reflect(GameUI.prototype, "GameUI");

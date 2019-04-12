@@ -49,10 +49,7 @@ class Game extends egret.DisplayObjectContainer {
         this._brithTimer += span;
 
         
-        if (this._gameui.Time <= 0)
-        {
-            return ;
-        }
+
         this._gameui.Time -= span;
         
         if (this._brithTimer >= 1000) {
@@ -68,7 +65,19 @@ class Game extends egret.DisplayObjectContainer {
         for(var i = this._actor_layer.numChildren - 1; i>=0; i--) {
             var actor = <Zombie>this._actor_layer.getChildAt(i); // 获取小僵尸
             actor.onUpdate(span);
+
+            // 僵尸跑掉,惩罚减少1秒钟
+            if (actor.parent == null) {
+                this._gameui.Time -= 1000;
+            }
         }
+
+        if (this._gameui.Time <= 0)
+        {
+            this._actor_layer.removeChildren();
+            this._bullets_layer.removeChildren();
+        }
+
          if (this._shot_vector != null)
          {
             this._guncd += span;

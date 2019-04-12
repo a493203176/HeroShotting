@@ -14,7 +14,8 @@
     "gridEnabled": false,
     "gridSize": 20,
     "globalAdsorbEnable": false,
-    "globalRulerEnable": true
+    "globalRulerEnable": true,
+    "globalAutoLayerMarkEnable": true
   },
   "16a0d4fa1ad": {
     "backgroundType": "null",
@@ -24,6 +25,12 @@
     "backgroundHeight": -1,
     "useBgImage": true,
     "useBgColor": true,
-    "backgroundAlpha": 100
+    "backgroundAlpha": 100,
+    "guideLines": [
+      {
+        "type": "h",
+        "pos": 65
+      }
+    ]
   }
 }
