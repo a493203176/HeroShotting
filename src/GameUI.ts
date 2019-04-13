@@ -6,16 +6,24 @@ class GameUI extends eui.Component{
 	private lb_bestscore:eui.Label;
 	private btn_replay:eui.Button;
 	private group_effect:eui.Group;
+	private btn_home:eui.Button;
 
 	public constructor() {
 		super();
 		this.skinName = "src/GameUISkin.exml";
 		//console.log(this.lb_score.text);
 		this.btn_replay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onclick_replay,this);
-		this.onclick_replay();
+		this.btn_home.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onclick_home,this);
+		//this.onclick_replay();
+		this.Time = 15000;
 	}
 
-	private onclick_replay() {
+	public onclick_home() {
+		Game.getInstance().parent.addChild(new StartUI());
+		Game.getInstance().parent.removeChild(Game.getInstance());
+	}
+
+	public onclick_replay() {
 		this.group_over.visible = false;
 		this.Score = 0;
 		this.Time = 15000;
@@ -49,9 +57,17 @@ class GameUI extends eui.Component{
 		this.group_over.visible = true;
 		this.lb_overscore.text = this.Score.toString();
 
-			if (this.Score > this.getBestScore()) {
+			if (this.getBestScore() > 9999)
+			{
 				this.setBestScore(this.Score);
 			}
+			else 
+			{
+				if (this.Score > this.getBestScore()) {
+					this.setBestScore(this.Score);
+				}
+			}
+
 			this.lb_bestscore.text = this.getBestScore().toString();
 	}
 

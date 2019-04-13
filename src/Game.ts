@@ -1,6 +1,14 @@
 // TypeScript file
 
 class Game extends egret.DisplayObjectContainer {
+    private static _instance:Game;
+    public static getInstance():Game  {
+        if(this._instance == null) {
+            this._instance = new Game();
+        }
+        return this._instance;
+    }
+
     private _gun:egret.Bitmap;
     private _actor_layer:egret.Sprite;
     private _bullets_layer:egret.Sprite;
@@ -22,7 +30,7 @@ class Game extends egret.DisplayObjectContainer {
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.ontouch_move,this);
         this.addEventListener(egret.TouchEvent.TOUCH_END,this.ontouch_end,this);
 
-        egret.startTick(this.onUpdate,this);
+     
         this._actor_layer = new egret.Sprite();
         this.addChild(this._actor_layer );
         this._bullets_layer = new egret.Sprite();
@@ -34,7 +42,11 @@ class Game extends egret.DisplayObjectContainer {
         this._gunsound = RES.getRes("machine_gun_mp3");
 
         this.addChild(this._gameui = new GameUI());
+        if (this._gameui != null) {
+            egret.startTick(this.onUpdate,this);
+        }
     }
+
 // bbs.egret.com/forum.php
     private _lasttimestamp:number = 0;
     private _brithTimer:number = 0; // 怪物出现时间戳
@@ -46,12 +58,13 @@ class Game extends egret.DisplayObjectContainer {
         //console.log("onUpdate");
         var span = timestamp - this._lasttimestamp;
         this._lasttimestamp = timestamp;
-        this._brithTimer += span;
 
-        
+        if (this._gameui.Time <= 0) {
+            return ;
+        }
 
         this._gameui.Time -= span;
-        
+        this._brithTimer += span;
         if (this._brithTimer >= 1000) {
             // console.log("onUpdate  111");
             this._brithTimer = 0;
@@ -169,5 +182,10 @@ class Game extends egret.DisplayObjectContainer {
         _bullt.x = this._gun.x - 10;
         _bullt.y = this._gun.y;
         this._bullets_layer.addChild(_bullt);
+    }
+
+
+    public BeginGame() {
+        this._gameui.onclick_replay();
     }
 }

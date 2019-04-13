@@ -1,6 +1,7 @@
 {
     "autoGenerateExmlsList": true,
     "exmls": [
-        "src/GameUISkin.exml"
+        "src/GameUISkin.exml",
+         "src/StartUISkin.exml"
     ]
 }

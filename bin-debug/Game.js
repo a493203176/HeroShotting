@@ -32,7 +32,6 @@ var Game = (function (_super) {
         _this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, _this.ontouch_begin, _this);
         _this.addEventListener(egret.TouchEvent.TOUCH_MOVE, _this.ontouch_move, _this);
         _this.addEventListener(egret.TouchEvent.TOUCH_END, _this.ontouch_end, _this);
-        egret.startTick(_this.onUpdate, _this);
         _this._actor_layer = new egret.Sprite();
         _this.addChild(_this._actor_layer);
         _this._bullets_layer = new egret.Sprite();
@@ -42,14 +41,26 @@ var Game = (function (_super) {
         bgmchannel.volume = 0.3;
         _this._gunsound = RES.getRes("machine_gun_mp3");
         _this.addChild(_this._gameui = new GameUI());
+        if (_this._gameui != null) {
+            egret.startTick(_this.onUpdate, _this);
+        }
         return _this;
     }
+    Game.getInstance = function () {
+        if (this._instance == null) {
+            this._instance = new Game();
+        }
+        return this._instance;
+    };
     Game.prototype.onUpdate = function (timestamp) {
         //console.log("onUpdate");
         var span = timestamp - this._lasttimestamp;
         this._lasttimestamp = timestamp;
-        this._brithTimer += span;
+        if (this._gameui.Time <= 0) {
+            return;
+        }
         this._gameui.Time -= span;
+        this._brithTimer += span;
         if (this._brithTimer >= 1000) {
             // console.log("onUpdate  111");
             this._brithTimer = 0;
@@ -145,6 +156,9 @@ var Game = (function (_super) {
         _bullt.x = this._gun.x - 10;
         _bullt.y = this._gun.y;
         this._bullets_layer.addChild(_bullt);
+    };
+    Game.prototype.BeginGame = function () {
+        this._gameui.onclick_replay();
     };
     return Game;
 }(egret.DisplayObjectContainer));

@@ -1,2 +1,6 @@
-declare class NewFileSkin extends eui.Skin{
+declare class GameUISkin extends eui.Skin{
 }
+
+declare class StartUISkin extends eui.Skin{
+}
+

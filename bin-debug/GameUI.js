@@ -16,9 +16,15 @@ var GameUI = (function (_super) {
         _this.skinName = "src/GameUISkin.exml";
         //console.log(this.lb_score.text);
         _this.btn_replay.addEventListener(egret.TouchEvent.TOUCH_TAP, _this.onclick_replay, _this);
-        _this.onclick_replay();
+        _this.btn_home.addEventListener(egret.TouchEvent.TOUCH_TAP, _this.onclick_home, _this);
+        //this.onclick_replay();
+        _this.Time = 15000;
         return _this;
     }
+    GameUI.prototype.onclick_home = function () {
+        Game.getInstance().parent.addChild(new StartUI());
+        Game.getInstance().parent.removeChild(Game.getInstance());
+    };
     GameUI.prototype.onclick_replay = function () {
         this.group_over.visible = false;
         this.Score = 0;
@@ -54,8 +60,13 @@ var GameUI = (function (_super) {
     GameUI.prototype.GameOver = function () {
         this.group_over.visible = true;
         this.lb_overscore.text = this.Score.toString();
-        if (this.Score > this.getBestScore()) {
+        if (this.getBestScore() > 9999) {
             this.setBestScore(this.Score);
+        }
+        else {
+            if (this.Score > this.getBestScore()) {
+                this.setBestScore(this.Score);
+            }
         }
         this.lb_bestscore.text = this.getBestScore().toString();
     };
