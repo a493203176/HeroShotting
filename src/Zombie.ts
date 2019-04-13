@@ -6,21 +6,30 @@ class Zombie  extends egret.Sprite{
 	private _body:egret.Bitmap;
 	private _framesindex:number = 0;
 	private _framesspeed:number = 0;
-	private _frmaes:egret.Texture[] = [];
+	protected _frmaes:egret.Texture[] = [];
 	private _deadframe:egret.Texture[] = [];
 	public _zombiestatus:ZombieStatus = ZombieStatus.Run;
+
+	public HP:number = 1; // 僵尸血量
+	public Score:number = 100;  // 僵尸分数
+
 	public constructor() {
 		super();
 		this._body = new egret.Bitmap(RES.getRes("enemy_05_walk_front_00_png"));
 		this.addChild(this._body);
-		for(var i = 0; i<7; i++){
-			this._frmaes.push(RES.getRes("enemy_05_walk_front_0"+i+"_png"))
+		this.initZombie();
+		for(var i = 0; i<6;i++) {
+			this._deadframe.push(RES.getRes("enemy_dead_00_0"+i+"_png"));
 		}
+	
+	}
 
-		for(var i = 0; i<6; i++){
-			this._deadframe.push(RES.getRes("enemy_dead_01_0"+i+"_png"))
+	protected initZombie() {
+		for(var i = 0; i<7; i++){
+			this._frmaes.push(RES.getRes("enemy_05_walk_front_0"+i+"_png"));
 		}
 	}
+
 	private _speed:number = 220;
 	public onUpdate(span:number) {
 		if (this._zombiestatus == ZombieStatus.Run) {
@@ -62,5 +71,15 @@ class Zombie  extends egret.Sprite{
 
 	public getBlock():egret.Rectangle {
 		return new egret.Rectangle(this.x+10,this.y,58-10,60-10);
+	}
+}
+
+class Zombie1 extends Zombie {
+	protected initZombie() {
+		this.HP = 3;
+		this.Score = 300;
+		for(var i = 0; i<7; i++){
+			this._frmaes.push(RES.getRes("enemy_08_walk_front_0"+i+"_png"));
+		}
 	}
 }

@@ -22,17 +22,22 @@ var Zombie = (function (_super) {
         _this._frmaes = [];
         _this._deadframe = [];
         _this._zombiestatus = ZombieStatus.Run;
+        _this.HP = 1; // 僵尸血量
+        _this.Score = 100; // 僵尸分数
         _this._speed = 220;
         _this._body = new egret.Bitmap(RES.getRes("enemy_05_walk_front_00_png"));
         _this.addChild(_this._body);
-        for (var i = 0; i < 7; i++) {
-            _this._frmaes.push(RES.getRes("enemy_05_walk_front_0" + i + "_png"));
-        }
+        _this.initZombie();
         for (var i = 0; i < 6; i++) {
-            _this._deadframe.push(RES.getRes("enemy_dead_01_0" + i + "_png"));
+            _this._deadframe.push(RES.getRes("enemy_dead_00_0" + i + "_png"));
         }
         return _this;
     }
+    Zombie.prototype.initZombie = function () {
+        for (var i = 0; i < 7; i++) {
+            this._frmaes.push(RES.getRes("enemy_05_walk_front_0" + i + "_png"));
+        }
+    };
     Zombie.prototype.onUpdate = function (span) {
         if (this._zombiestatus == ZombieStatus.Run) {
             this.y += this._speed * (span / 1000);
@@ -71,4 +76,19 @@ var Zombie = (function (_super) {
     return Zombie;
 }(egret.Sprite));
 __reflect(Zombie.prototype, "Zombie");
+var Zombie1 = (function (_super) {
+    __extends(Zombie1, _super);
+    function Zombie1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Zombie1.prototype.initZombie = function () {
+        this.HP = 3;
+        this.Score = 300;
+        for (var i = 0; i < 7; i++) {
+            this._frmaes.push(RES.getRes("enemy_08_walk_front_0" + i + "_png"));
+        }
+    };
+    return Zombie1;
+}(Zombie));
+__reflect(Zombie1.prototype, "Zombie1");
 //# sourceMappingURL=Zombie.js.map

@@ -5,6 +5,7 @@ class GameUI extends eui.Component{
 	private lb_overscore:eui.Label;
 	private lb_bestscore:eui.Label;
 	private btn_replay:eui.Button;
+	private group_effect:eui.Group;
 
 	public constructor() {
 		super();
@@ -68,4 +69,42 @@ class GameUI extends eui.Component{
 		egret.localStorage.setItem("KZ_BESTSCORE",value.toString());
 	}
 
+	public addScoreEffect(x:number, y:number,score:number) {
+		var eff = new eui.Label();
+		eff.text = score.toString();
+		eff.x = x;
+		eff.y = y;
+		eff.stroke = 3;
+		this.group_effect.addChild(eff);
+		var tx = this.lb_score.x + this.lb_score.width/2;
+		var ty = this.lb_score.y;
+		console.log("x: ",this.lb_score.x);
+		console.log("y: ",this.lb_score.y);
+		egret.Tween.get(eff)
+			.to({x:tx,y:ty},500,egret.Ease.circInOut)
+			.call(this.addScore,this,[score])
+			.call(this.removeEffectFromGroup,this,[eff]);
+	}
+
+	private addScore(score:number) {
+		this.Score += score;
+	}
+
+	private removeEffectFromGroup(eff:egret.DisplayObject) {
+		this.group_effect.removeChild(eff);
+	}
+
+	private myFactory:egret.MovieClipDataFactory = null;
+	public addHurtEffect(x:number,y:number) {
+		if (this.myFactory == null) {
+			this.myFactory = new egret.MovieClipDataFactory(RES.getRes("hurteffect_json"),RES.getRes("hurteffect_png"));
+		}
+		var mc = new egret.MovieClip(this.myFactory.generateMovieClipData("eff_hurt_0"))
+		mc.x = x;
+		mc.y = y;
+		mc.gotoAndPlay("play",1);
+		this.group_effect.addChild(mc);
+		egret.Tween.get(this).wait(200).call(this.removeEffectFromGroup,this,[mc]);
+
+	}
 }

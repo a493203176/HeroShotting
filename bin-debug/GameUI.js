@@ -12,6 +12,7 @@ var GameUI = (function (_super) {
     __extends(GameUI, _super);
     function GameUI() {
         var _this = _super.call(this) || this;
+        _this.myFactory = null;
         _this.skinName = "src/GameUISkin.exml";
         //console.log(this.lb_score.text);
         _this.btn_replay.addEventListener(egret.TouchEvent.TOUCH_TAP, _this.onclick_replay, _this);
@@ -69,6 +70,39 @@ var GameUI = (function (_super) {
     };
     GameUI.prototype.setBestScore = function (value) {
         egret.localStorage.setItem("KZ_BESTSCORE", value.toString());
+    };
+    GameUI.prototype.addScoreEffect = function (x, y, score) {
+        var eff = new eui.Label();
+        eff.text = score.toString();
+        eff.x = x;
+        eff.y = y;
+        eff.stroke = 3;
+        this.group_effect.addChild(eff);
+        var tx = this.lb_score.x + this.lb_score.width / 2;
+        var ty = this.lb_score.y;
+        console.log("x: ", this.lb_score.x);
+        console.log("y: ", this.lb_score.y);
+        egret.Tween.get(eff)
+            .to({ x: tx, y: ty }, 500, egret.Ease.circInOut)
+            .call(this.addScore, this, [score])
+            .call(this.removeEffectFromGroup, this, [eff]);
+    };
+    GameUI.prototype.addScore = function (score) {
+        this.Score += score;
+    };
+    GameUI.prototype.removeEffectFromGroup = function (eff) {
+        this.group_effect.removeChild(eff);
+    };
+    GameUI.prototype.addHurtEffect = function (x, y) {
+        if (this.myFactory == null) {
+            this.myFactory = new egret.MovieClipDataFactory(RES.getRes("hurteffect_json"), RES.getRes("hurteffect_png"));
+        }
+        var mc = new egret.MovieClip(this.myFactory.generateMovieClipData("eff_hurt_0"));
+        mc.x = x;
+        mc.y = y;
+        mc.gotoAndPlay("play", 1);
+        this.group_effect.addChild(mc);
+        egret.Tween.get(this).wait(200).call(this.removeEffectFromGroup, this, [mc]);
     };
     return GameUI;
 }(eui.Component));

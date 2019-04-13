@@ -53,7 +53,13 @@ var Game = (function (_super) {
         if (this._brithTimer >= 1000) {
             // console.log("onUpdate  111");
             this._brithTimer = 0;
-            var zombie = new Zombie();
+            var zombie;
+            if (Math.random() < 0.3) {
+                zombie = new Zombie1();
+            }
+            else {
+                zombie = new Zombie();
+            }
             zombie.x = 80 + Math.random() * 480;
             zombie.y = -100;
             this._actor_layer.addChild(zombie);
@@ -91,9 +97,13 @@ var Game = (function (_super) {
                 }
                 if (actor.getBlock().containsPoint(point)) {
                     // this._actor_layer.removeChild(actor);
-                    actor.Dead();
+                    actor.HP -= 1;
+                    if (actor.HP <= 0) {
+                        actor.Dead();
+                        this._gameui.addScoreEffect(actor.x, actor.y, actor.Score);
+                    }
                     this._bullets_layer.removeChild(bullet);
-                    this._gameui.Score += 100;
+                    this._gameui.addHurtEffect(actor.x, actor.y);
                     break;
                 }
             }
